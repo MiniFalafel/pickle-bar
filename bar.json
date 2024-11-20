@@ -1,0 +1,147 @@
+{
+	"layer": "top",
+	"exclusive": true,
+	"modules-left": ["group/launch", "custom/wallpaper"],
+	"modules-center": ["group/middle"],
+	"modules-right": ["cava", "group/resources", "group/net-sound-pwr"],
+
+	"custom/launcher":
+	{
+//		"format": " ",
+//		"format": "󰣇 ",
+        "format": "󰄄 ",
+//		"format": "󰂩 ",
+		"on-click": "wofi --show drun --location 1 --width 400"
+	},
+	"hyprland/workspaces":
+	{
+		"wks": "WKS1",
+		"disable-scroll": true,
+		"persistent-workspaces": {
+			"*": 1,
+		}
+	},
+	"hyprland/workspaces#wks2":
+	{
+		"wks": "WKS2",
+		"format": "_",
+		"disable-scroll": true,
+		"persistent-workspaces": {
+			"*": 1,
+		}
+	},
+	"custom/drawer":
+	{
+		"format": "",
+	},
+	"custom/wifi":
+	{
+		"format": "󰖩",
+		"on-click": "$USR_SCRIPTS/py/bin/python $USR_SCRIPTS/wifi_menu.py"
+	},
+	"custom/audio":
+	{
+		"format": "",
+		"on-click": "bash $USR_SCRIPTS/sound.sh"
+	},
+	"custom/power":
+	{
+		"format": " ",
+		"on-click": "$USR_SCRIPTS/py/bin/python $USR_SCRIPTS/power_menu.py"
+	},
+	"custom/wallpaper":
+	{
+		"format": " ",
+		"on-click": "set-random-background"
+	},
+
+
+	"clock":
+	{
+		"format": "{:%I:%M %p}",
+		"format-alt": "{:%a, %b. %d  %I:%M %p}",
+	},
+	"cpu":
+	{
+		"interval": 1,
+		"format": "  {usage}%",
+		"max-length": 10,
+		"signal": 8,
+
+        "on-click": "hyprctl dispatch exec \"[float;size 800 450]\" kitty vtop",
+	},
+	"memory":
+	{
+		"interval": 1,
+
+		"format": "  {}%",
+		"max-length": 10,
+
+        "on-click": "hyprctl dispatch exec \"[float;size 800 450]\" kitty vtop",
+	},
+	"battery":
+	{
+		"interval": 1,
+
+		"states":
+		{
+			"warning": 20,
+			"critical": 10,
+		},
+		"format": "{icon} {capacity}",
+		"format-charging": "{icon}󱐋 {capacity}",
+		"format-plugged": "{icon} {capacity}",
+		"format-alt": "{time} {icon}",
+		"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+		"might-use-later": ["󱈏 ", "󰂃"],
+	},
+
+	"cava": {
+		"format": "############",
+	        "cava_config": "$HOME/.config/cava/config",
+	        "framerate": 30,
+	        "autosens": 1,
+	        "bars": 8,
+	        "lower_cutoff_freq": 40,
+	        "higher_cutoff_freq": 8000,
+	        "method": "pipewire",
+	        "source": "auto",
+	        "stereo": true,
+	        "reverse": false,
+	        "bar_delimiter": 0,
+	        "monstercat": true,
+	        "waves": true,
+	        "noise_reduction": 0.3,
+	        "input_delay": 2,
+	        "sleep_timer": 3,
+	        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+	},
+
+	"group/launch":
+	{
+		"orientation": "inherit",
+		"modules": ["custom/launcher", "clock"],
+	},
+
+	"group/middle":
+	{
+		"orientation": "inherit",
+		"modules": ["hyprland/workspaces#wks2"],
+	},
+
+	"group/resources":
+	{
+		"orientation": "inherit",
+		"modules": ["cpu", "memory", "battery"],
+	},
+
+	"group/net-sound-pwr":
+	{
+		"orientation": "inherit",
+		"drawer" : {
+			"transition-duration": 200,
+			"transition-left-to-right": false,
+		},
+		"modules": ["custom/power", "custom/wifi", "custom/audio"],
+	},
+}
