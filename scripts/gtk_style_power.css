@@ -1,0 +1,16 @@
+* {
+	font-family: "JetbrainsMono Nerd Font";
+	font-size: 45px;
+}
+
+@define-color border rgba(255, 255, 255, 0.5);
+
+window {
+	border: 2.5px solid @border;
+	border-radius: 10px;
+	background: transparent;
+}
+
+grid {
+	padding: 7px;
+}
