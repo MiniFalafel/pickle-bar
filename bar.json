@@ -37,17 +37,17 @@
 	"custom/wifi":
 	{
 		"format": "󰖩",
-		"on-click": "$USR_SCRIPTS/py/bin/python $USR_SCRIPTS/wifi_menu.py"
+		"on-click": "python $WB_SCRIPT_PATH/wifi_menu.py"
 	},
 	"custom/audio":
 	{
 		"format": "",
-		"on-click": "bash $USR_SCRIPTS/sound.sh"
+		"on-click": "bash $WB_SCRIPT_PATH/sound.sh"
 	},
 	"custom/power":
 	{
 		"format": " ",
-		"on-click": "$USR_SCRIPTS/py/bin/python $USR_SCRIPTS/power_menu.py"
+		"on-click": "python $WB_SCRIPT_PATH/power_menu.py"
 	},
 	"custom/wallpaper":
 	{
@@ -98,7 +98,6 @@
 
 	"cava": {
 		"format": "############",
-	        "cava_config": "$HOME/.config/cava/config",
 	        "framerate": 30,
 	        "autosens": 1,
 	        "bars": 8,
