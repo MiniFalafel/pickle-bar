@@ -1,1 +1,2 @@
 python-gobject
+ttf-jetbrains-mono-nerd
